@@ -1,0 +1,14 @@
+input{
+    width: 98%;
+}
+.row{
+    margin: 20px;
+    
+}
+.container{
+    margin: 15px 2px 0px 0px
+}
+button{
+    min-width: 90px;
+    
+    }

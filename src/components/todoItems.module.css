@@ -1,0 +1,12 @@
+.Todos{
+    text-align: left;
+    vertical-align: text-bottom;
+    font-size: 25px;
+    font-weight:500
+}
+.row{
+    margin: 25px;
+}
+.container{
+    margin: 5px 2px 0px 10px
+}
