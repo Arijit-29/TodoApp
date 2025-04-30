@@ -3,14 +3,22 @@ import TodoAdder from "./components/TodoAdder.jsx"
 import TodoItems from "./components/todoItems.jsx";
 import WelcomeMessage from "./components/welcomeMessage.jsx";
 import "./App.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 function App() {
-  const todoItems=[]
-  const [item,setItem]=useState(todoItems)
+  const getInitialTodos = () => {
+    const saved = localStorage.getItem("todoItems");
+    return saved ? JSON.parse(saved) : [];
+  };
+  const [item,setItem]=useState(getInitialTodos)
+  useEffect(() => {
+    localStorage.setItem("todoItems", JSON.stringify(item));
+  }, [item]);
   const onAdd=(name,date)=>{
-        console.log({name},{date})
-        const newItems=[...item,{todoName:name,todoDate:date},]
-        setItem(newItems)
+        
+        setItem((currvalue)=>{
+          const newItems=[...currvalue,{todoName:name,todoDate:date},]
+          return newItems
+        })
   }
  const onDelete=(name)=>{
     const newItems=item.filter(item=>item.todoName!==name)
