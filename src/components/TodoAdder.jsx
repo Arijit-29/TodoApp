@@ -1,7 +1,9 @@
-import { useRef} from "react";
+import { useContext, useRef} from "react";
 import styles from "./TodoAdder.module.css"
 import { BiSolidAddToQueue } from "react-icons/bi";
-function TodoAdder({onAdd}){
+import { todoItemsStore } from "../store/todoItemsStore";
+function TodoAdder(){
+      const {onAdd}=useContext(todoItemsStore)
       const todoname=useRef()
       const tododate=useRef()
       const addButtonClicked=(event)=>{
